@@ -152,6 +152,25 @@ public class LinkedList {
 
 
     }
+
+    //Returns the Kth node value from the end of the LinkedList
+    public int getKthFromEnd(int k){
+        if(isEmpty())
+            throw new IllegalStateException();
+
+        var a = first;
+        var b = first;
+        for (int i = 0; i<k-1; i++) {
+            b = b.next;
+            if(b==null)
+                throw new IllegalArgumentException();
+        }
+        while(b!=last){
+                a = a.next;
+                b = b.next;
+        }
+        return a.value;
+    }
     //Check to see if hte LinkedList is empty
     //private, because we don't want it to be accessible from outside of this class
     private boolean isEmpty(){
