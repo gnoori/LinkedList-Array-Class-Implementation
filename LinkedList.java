@@ -131,6 +131,27 @@ public class LinkedList {
         return newArray;
     }
 
+    //Reversing Linked List
+    public void reverse(){
+        //[10 -> 20 -> 30]
+        //[p  -> c  -> n]
+        if(isEmpty()) return;
+
+        var prev = first;
+        var current = first.next;
+        while(current!=null){
+            var next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+
+        last = first; //makes the first element = last element
+        last.next = null;// clears the link from 10 -> 20
+        first = prev; // makes the last element = first element
+
+
+    }
     //Check to see if hte LinkedList is empty
     //private, because we don't want it to be accessible from outside of this class
     private boolean isEmpty(){
