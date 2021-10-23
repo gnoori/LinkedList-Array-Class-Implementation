@@ -141,7 +141,9 @@ public class LinkedList {
         var current = first.next;
         while(current!=null){
             var next = current.next;
+            //change the direction of the p -> c to p <- c
             current.next = prev;
+            //move one step forward
             prev = current;
             current = next;
         }
